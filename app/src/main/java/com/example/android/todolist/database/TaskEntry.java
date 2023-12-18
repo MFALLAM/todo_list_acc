@@ -1,15 +1,20 @@
 package com.example.android.todolist.database;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+
 import java.util.Date;
 
+@Entity(tableName = "task")
 public class TaskEntry {
-
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String description;
     private int priority;
-    // COMPLETED (1) Make updatedAt match a column named updated_at. Tip: Use the ColumnInfo annotation
     private Date updatedAt;
 
+    @Ignore
     public TaskEntry(String description, int priority, Date updatedAt) {
         this.description = description;
         this.priority = priority;
