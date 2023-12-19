@@ -16,6 +16,7 @@ android {
             minifyEnabled false
         }
     }
+    namespace 'com.example.android.todolist'
 }
 
 dependencies {
