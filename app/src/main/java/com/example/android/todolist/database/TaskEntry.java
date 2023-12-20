@@ -13,6 +13,7 @@ public class TaskEntry {
     private int id;
     private String description;
     private int priority;
+    @ColumnInfo(name = "created_at")
     private Date updatedAt;
 
     @Ignore
