@@ -30,6 +30,7 @@ public class AddTaskActivity extends AppCompatActivity {
     Button mButton;
     private int mTaskId = DEFAULT_TASK_ID;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
