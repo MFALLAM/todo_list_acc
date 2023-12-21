@@ -13,7 +13,7 @@ import java.util.List;
 public interface TaskDao {
     // get data
     @Query("SELECT * FROM task ORDER BY priority")
-    List<TaskEntry> loadAllTasks(TaskEntry taskEntry);
+    List<TaskEntry> loadAllTasks();
 
     // insert data
     @Insert
