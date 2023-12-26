@@ -13,16 +13,17 @@ import java.util.List;
 public interface TaskDao {
     // get data
     @Query("SELECT * FROM task ORDER BY priority")
-    List<TaskEntry> loadAllTasks(TaskEntry taskEntry);
+    List<TaskEntry> loadAllTasks();
 
     // insert data
     @Insert
     void insertTask(TaskEntry taskEntry);
 
+    // update data
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateTask(TaskEntry taskEntry);
-    // delete data
 
+    // delete data
     @Delete
     void deleteTask(TaskEntry taskEntry);
 
