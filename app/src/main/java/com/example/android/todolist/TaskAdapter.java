@@ -2,7 +2,7 @@ package com.example.android.todolist;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
-import android.support.compat.R;
+import android.support.design.R;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -48,8 +48,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     @Override
     public TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Inflate the task_layout to a view
-        View view = LayoutInflater.from(mContext)
-                .inflate(R.layout.task_layout, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(com.example.android.todolist.R.layout.task_layout, parent, false);
 
         return new TaskViewHolder(view);
     }
@@ -91,13 +90,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
         switch (priority) {
             case 1:
-                priorityColor = ContextCompat.getColor(mContext, R.color.materialRed);
+                priorityColor = ContextCompat.getColor(mContext, com.example.android.todolist.R.color.materialRed);
                 break;
             case 2:
-                priorityColor = ContextCompat.getColor(mContext, R.color.materialOrange);
+                priorityColor = ContextCompat.getColor(mContext, com.example.android.todolist.R.color.materialOrange);
                 break;
             case 3:
-                priorityColor = ContextCompat.getColor(mContext, R.color.materialYellow);
+                priorityColor = ContextCompat.getColor(mContext, com.example.android.todolist.R.color.materialYellow);
                 break;
             default:
                 break;
@@ -145,9 +144,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         public TaskViewHolder(View itemView) {
             super(itemView);
 
-            taskDescriptionView = itemView.findViewById(R.id.taskDescription);
-            updatedAtView = itemView.findViewById(R.id.taskUpdatedAt);
-            priorityView = itemView.findViewById(R.id.priorityTextView);
+            taskDescriptionView = itemView.findViewById(com.example.android.todolist.R.id.taskDescription);
+            updatedAtView = itemView.findViewById(com.example.android.todolist.R.id.taskUpdatedAt);
+            priorityView = itemView.findViewById(com.example.android.todolist.R.id.priorityTextView);
             itemView.setOnClickListener(this);
         }
 

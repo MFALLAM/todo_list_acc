@@ -86,7 +86,21 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     @Override
     protected void onResume() {
         super.onResume();
-        mAdapter.setTasks(mDB.taskDao().loadAllTasks());
+        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                final List<TaskEntry> tasks = mDB.taskDao().loadAllTasks();
+                // we will be able to simplify this once we learn more
+                // about Android Architecture Components
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter.setTasks(tasks);
+                    }
+                });
+            }
+        });
+
     }
 
     @Override

@@ -97,8 +97,11 @@ public class AddTaskActivity extends AppCompatActivity {
         int priority = getPriorityFromViews();
         Date date = new Date();
 
-        TaskEntry taskEntry = new TaskEntry(description, priority, date);
-        mDB.taskDao().insertTask(taskEntry);
+        final TaskEntry taskEntry = new TaskEntry(description, priority, date);
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            mDB.taskDao().insertTask(taskEntry);
+            finish();
+        });
     }
 
     /**
